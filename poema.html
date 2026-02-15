@@ -3,149 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuscrito de un Amor Eterno</title>
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <title>Oda a Mi Emperatriz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #120a0a;
+            background: #f4d0d8; /* Rosa suave */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden;
+            font-family: 'Lora', serif; /* Letra principal muy legible */
+            overflow-x: hidden;
         }
 
-        /* El Pergamino Sagrado */
-        .pergamino {
-            background: #fdf5e6;
-            background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
-            padding: 60px;
-            width: 85%;
-            max-width: 600px;
-            box-shadow: 0 0 60px rgba(0,0,0,0.9), inset 0 0 120px rgba(80, 40, 20, 0.2);
-            border-radius: 2px;
+        .pergamino-marco {
             position: relative;
-            transform: rotate(-0.5deg);
-            animation: aparecerSuave 3s ease-in-out;
-            border: 1px solid #d4af37; /* Toque dorado */
+            width: 90%;
+            max-width: 550px;
+            padding: 20px;
         }
 
-        .contenido {
+        .pergamino {
+            position: relative;
+            background: #fdf5e6; /* Color papel antiguo claro */
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            padding: 50px 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2), inset 0 0 60px rgba(139, 69, 19, 0.15);
+            border: 1px solid #d4a373;
+            border-radius: 4px;
             text-align: center;
-            color: #2b1d0e;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 40px;
+            /* Bordes ligeramente irregulares */
+            clip-path: polygon(
+                0% 1%, 5% 0%, 95% 1%, 100% 0%, 
+                99% 30%, 100% 70%, 99% 98%, 95% 100%, 
+                5% 99%, 0% 100%, 1% 70%, 0% 30%
+            );
         }
 
-        h1 {
-            font-family: 'Parisienne', cursive;
-            font-size: 3rem;
-            color: #7a0000;
-            margin-bottom: 40px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        /* Ornamentos en las esquinas */
+        .pergamino::before {
+            content: "❧";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #8b4513;
+            font-size: 25px;
+            opacity: 0.5;
         }
 
-        p {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            line-height: 2;
-            font-style: italic;
-            margin: 30px 0;
-            opacity: 0;
-            animation: reveladoPoetico 1.5s ease-out forwards;
-        }
-
-        /* Firma con estilo de pluma */
-        .firma {
-            margin-top: 50px;
-            font-family: 'Parisienne', cursive;
-            font-size: 2rem;
-            color: #7a0000;
-            border-top: 1px solid rgba(139, 69, 19, 0.2);
-            padding-top: 20px;
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: #582f0e;
+            font-size: 1.8rem;
+            margin: 0 0 25px 0;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #d4a373;
             display: inline-block;
+            padding-bottom: 5px;
         }
 
-        @keyframes aparecerSuave {
-            from { opacity: 0; transform: scale(0.9) rotate(2deg); }
-            to { opacity: 1; transform: scale(1) rotate(-0.5deg); }
+        .poema-contenido {
+            color: #2c1e12; /* Color más oscuro para mayor legibilidad */
+            font-size: 1.25rem; /* Tamaño aumentado */
+            line-height: 1.7; /* Espaciado cómodo */
+            margin: 20px 0;
+            white-space: pre-line;
+            text-align: center;
         }
 
-        @keyframes reveladoPoetico {
-            from { opacity: 0; transform: translateY(10px); filter: blur(3px); }
-            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        /* Resaltamos las palabras especiales */
+        .resaltado {
+            font-weight: 700;
+            color: #a4161a;
+        }
+
+        .firma {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #582f0e;
+            margin-top: 35px;
+            display: block;
+        }
+
+        .sello-cera {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 70px;
+            height: 70px;
+            background: #a4161a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transform: rotate(-10deg);
+            z-index: 10;
+        }
+
+        .sello-cera::after {
+            content: "❤";
+            color: rgba(255,255,255,0.8);
+            font-size: 30px;
         }
 
         .btn-volver {
             margin-top: 40px;
-            display: inline-block;
             text-decoration: none;
             color: #8b4513;
-            font-family: 'Playfair Display', serif;
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            border: 1px solid #8b4513;
+            padding: 8px 15px;
+            border-radius: 20px;
             transition: 0.3s;
+            display: inline-block;
+            font-family: sans-serif;
         }
 
-        .btn-volver:hover { color: #ff1493; }
-
-        /* Corazones tenues de fondo */
-        .latido-fondo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20rem;
-            color: rgba(255, 0, 0, 0.03);
-            z-index: -1;
-            animation: latir 3s infinite;
-        }
-
-        @keyframes latir {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
+        .btn-volver:hover {
+            background: #8b4513;
+            color: white;
         }
     </style>
 </head>
 <body>
 
-    <div class="latido-fondo">❤</div>
-
-    <div class="pergamino">
-        <div class="contenido">
-            <h1>Tú, mi razón de ser</h1>
+    <div class="pergamino-marco">
+        <div class="pergamino">
+            <h2>Mi reina hermosa</h2>
             
-            <p style="animation-delay: 1s;">
-                Si el universo fuera un lienzo vacío,<br>
-                pintaría con tu risa cada rincón oscuro.<br>
-                Porque no hay más patria que tu abrazo,<br>
-                ni más puerto que el abrigo de tu amor puro.
-            </p>
-            
-            <p style="animation-delay: 3s;">
-                Amo el silencio si lo comparto contigo,<br>
-                y el tiempo, ese ladrón, se detiene a mirarte.<br>
-                Pues no eres solo un sueño en mi camino,<br>
-                eres la vida misma hecha obra de arte.
-            </p>
+            <div class="poema-contenido">
+                Oh, mi Reina del Mal</span>, de ojos increíbles
+                y alma indómita que a mi vida encadena.
+                Eres el dulce tormento de mis días,
+                la dueña absoluta de mi sangre y mis venas.
 
-            <p style="animation-delay: 5s;">
-                No busco estrellas en el firmamento lejano,<br>
-                ni tesoros que el mar guarda en su profundidad.<br>
-                Me basta el roce tibio de tu mano<br>
-                para hallar en este mundo... la felicidad.
-            </p>
+                Mi Pandita Cachetona</span>, tesoro de ternura,
+                mi bebé pechocha y hemocha</span>.
+                En el jardín de mi pecho tu amor florece,
+                como la rosa más bella que la tarde trasnocha.
 
-            <div class="firma" style="animation-delay: 7s; opacity:0; animation: reveladoPoetico 1.5s forwards 7s;">
-                Tuyo, por siempre y para siempre
+                Tu sonrisa hermosa eleva mi universo,
+                y en tu mirada hallé mi mejor destino.
+                Contigo,amor de mi vida, lo tengo todo,
+                eres el sueño más puro que en mi alma vino.
             </div>
-            
-            <br>
-            <a href="index.html" class="btn-volver">← Volver a nuestro encuentro</a>
+
+            <span class="firma">Con amor infinito, tu novio y futuro esposo</span>
+
+            <a href="index.html" class="btn-volver">←volver</a>
         </div>
+        <div class="sello-cera"></div>
     </div>
 
 </body>
